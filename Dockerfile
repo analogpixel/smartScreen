@@ -1,6 +1,6 @@
 FROM python
 
-RUN pip install flask
+RUN pip install flask selenium
 RUN mkdir /app
 
 COPY app/  /app/
