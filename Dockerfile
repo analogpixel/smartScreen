@@ -1,11 +1,10 @@
 FROM python
 
-RUN pip install flask selenium
+RUN pip install flask 
 RUN mkdir /app
 
 COPY app/  /app/
-
-expose 5000
+expose 9786
 
 WORKDIR /app
 # ENTRYPOINT ["python"]
