@@ -14,6 +14,15 @@ def send(m):
     from_server = client.recv(4096)
     client.close()
 
+
+##
+## Slide Show Functions
+###
+@app.route('/slideshow/activate')
+def slideshow_activate():
+    send("url|http://localhost:1133/slideshow/")
+    return "ok"
+
 @app.route('/slideshow/')
 def slideshow_show():
     return app.send_static_file('slideshow/index.html')
@@ -22,6 +31,8 @@ def slideshow_show():
 def slideshow_random_img():
     img = random.choice( list(filter( lambda x: x.split('.')[-1].lower() in ['png','jpg','gif'] , glob.glob("static/content/insp_pictures/**/*", recursive=True) ) ))
     return send_file(img, mimetype='image/' + img.split('.')[-1].lower() )
+
+## End SlideShow Functions
 
 @app.route('/url/<prefix>/<postfix>')
 def open_url(prefix,postfix):
