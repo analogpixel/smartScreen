@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+# smart screen cli
+
+URL="http://raspberrypi.local:1133"
+
+import argparse
+import requests
+
+parser = argparse.ArgumentParser()
+subparser = parser.add_subparsers(dest='command')
+
+parser_url = subparser.add_parser('url', help='url')
+parser_url.add_argument('-u', '--url', help='go to url')
+
+parser_slideshow = subparser.add_parser('slideshow', help='slideshow')
+parser_slideshow.add_argument('-s', '--start',  action='store_true' , help='start slideshow')
+
+args = parser.parse_args()
+
+if args.command == 'slideshow':
+    if args.start:
+        requests.get("{}/slideshow/activate".format(URL))
+
+if args.command == 'url':
+    if args.url:
+        [pre,post] = args.url.split('://')
+        requests.get("{}/url/{}/{}".format(URL, pre,post) )
