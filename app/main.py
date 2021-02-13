@@ -38,6 +38,7 @@ def slideshow_random_img():
 @app.route('/url/<url>')
 def open_url(prefix,postfix):
     url = urllib.parse.unquote(url)
+    print(url)
     send("url|{}".format(url))
     return "ok"
 

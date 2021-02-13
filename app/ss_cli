@@ -6,6 +6,7 @@ URL="http://raspberrypi.local:1133"
 
 import argparse
 import requests
+import urllib.parse
 
 parser = argparse.ArgumentParser()
 subparser = parser.add_subparsers(dest='command')
@@ -25,5 +26,5 @@ if args.command == 'slideshow':
 if args.command == 'url':
     if args.url:
         url = urllib.parse.quote_plus(args.url)
-        print("{}/url/{}.format(URL, url))
+        print("{}/url/{}".format(URL, url))
         requests.get("{}/url/{}".format(URL, url) )
