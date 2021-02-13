@@ -36,7 +36,7 @@ def slideshow_random_img():
 ## End SlideShow Functions
 
 @app.route('/url/<url>')
-def open_url(prefix,postfix):
+def open_url(url):
     url = urllib.parse.unquote(url)
     print(url)
     send("url|{}".format(url))
