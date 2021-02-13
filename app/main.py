@@ -4,6 +4,7 @@ import socket
 import struct
 import glob
 import random
+import urllib.parse
 
 app = Flask(__name__)
 
@@ -34,9 +35,9 @@ def slideshow_random_img():
 
 ## End SlideShow Functions
 
-@app.route('/url/<prefix>/<postfix>')
+@app.route('/url/<url>')
 def open_url(prefix,postfix):
-    print(prefix,postfix)
-    send("url|{}://{}".format(prefix,postfix))
+    url = urllib.parse.unquote(url)
+    send("url|{}".format(url))
     return "ok"
 
