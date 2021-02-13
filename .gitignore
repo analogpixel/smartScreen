@@ -1,2 +1,3 @@
 __pycache__
 geckodriver.log
+app/static/content/insp_pictures/*

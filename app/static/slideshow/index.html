@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smartScreen</title>
+    <script src="/static/js/jquery-3.5.1.min.js"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    
+   <link href="/static/slideshow/slideshow_style.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <center><img id="img_id"/></center>
+
+    <script>
+      function reload_image() {
+              var img_src = '/slideshow/random_img/?' + new Date().getTime();
+              $('#img_id').attr('src', img_src);
+
+            }
+
+            setInterval(reload_image, 60 * 1000);
+            reload_image();
+    </script>
+  </body>
+</html>
