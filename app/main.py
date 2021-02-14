@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from flask import Flask,send_file
+from flask import Flask,send_file,request
 import socket
 import struct
 import glob
@@ -35,10 +35,11 @@ def slideshow_random_img():
 
 ## End SlideShow Functions
 
-@app.route('/url/<url>')
-def open_url(url):
+@app.route('/url', methods=['POST'])
+def open_url():
+    url = request.form['url']
     url = urllib.parse.unquote(url)
-    print(url)
+    print("Got URL:", url)
     send("url|{}".format(url))
     return "ok"
 

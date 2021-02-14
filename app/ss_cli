@@ -26,5 +26,4 @@ if args.command == 'slideshow':
 if args.command == 'url':
     if args.url:
         url = urllib.parse.quote_plus(args.url)
-        print("{}/url/{}".format(URL, url))
-        requests.get("{}/url/{}".format(URL, url) )
+        requests.post("{}/url".format(URL), data = {'url': url} )
