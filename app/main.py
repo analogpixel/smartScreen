@@ -35,6 +35,11 @@ def slideshow_random_img():
 
 ## End SlideShow Functions
 
+##
+## URL functions
+##
+# Not using GET for this due to a bug with parsing inputs with /'s (event it encoded in them)
+# https://stackoverflow.com/questions/24519076/python-flask-url-encoded-leading-slashes-causing-404-or-405
 @app.route('/url', methods=['POST'])
 def open_url():
     url = request.form['url']
@@ -43,3 +48,4 @@ def open_url():
     send("url|{}".format(url))
     return "ok"
 
+## End Url Functions
