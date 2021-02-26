@@ -6,19 +6,17 @@ import glob
 import random
 import urllib.parse
 from slideshow import slideshow_bp
+from reference import reference_bp
+from url import url_bp
 
 app = Flask(__name__)
 
 
 app.register_blueprint(slideshow_bp)
+app.register_blueprint(reference_bp)
+app.register_blueprint(url_bp)
 
-##
-## Reference Functions
-##
-@app.route('/reference/load/<name>')
-def slideshow_show(name):
-    return app.send_static_file('slideshow/index.html')
-
+"""
 ##
 ## URL functions
 ##
@@ -33,3 +31,4 @@ def open_url():
     return "ok"
 
 ## End Url Functions
+"""

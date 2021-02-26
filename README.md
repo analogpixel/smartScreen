@@ -4,3 +4,4 @@ pubsub : https://maxhalford.github.io/blog/flask-sse-no-deps/
 
 
 http://wiki.ros.org/docker/Tutorials/GUI
+https://realpython.com/flask-blueprint/
