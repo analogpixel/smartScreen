@@ -1,0 +1,11 @@
+body {
+  background: black;
+}
+
+#img_id {
+  border-top:20px;
+  max-height: 90%;
+  height: 90vh;
+  overflow: hidden;
+  border: 10px solid #222;
+}
