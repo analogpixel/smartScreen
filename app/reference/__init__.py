@@ -8,4 +8,7 @@ def reference_show(name):
     return reference_bp.send_static_file('index.html')
 
 
+@reference_bp.route('/reference/upload')
+def reference_upload():
+    return ""
 
