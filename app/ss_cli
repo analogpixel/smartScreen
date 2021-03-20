@@ -17,7 +17,14 @@ parser_url.add_argument('-u', '--url', help='go to url')
 parser_slideshow = subparser.add_parser('slideshow', help='slideshow')
 parser_slideshow.add_argument('-s', '--start',  action='store_true' , help='start slideshow')
 
+parser_misc = subparser.add_parser('misc', help='misc commands')
+parser_misc.add_argument('-p', '--gitpull', action='store_true', help='git pull')
+
 args = parser.parse_args()
+
+if args.command == 'misc':
+    if args.gitpull:
+        requests.get("{}/git-pull".format(URL))
 
 if args.command == 'slideshow':
     if args.start:
