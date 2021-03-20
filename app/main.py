@@ -8,6 +8,7 @@ import urllib.parse
 from slideshow import slideshow_bp
 from reference import reference_bp
 from url import url_bp
+import os
 
 app = Flask(__name__)
 
@@ -15,6 +16,11 @@ app = Flask(__name__)
 app.register_blueprint(slideshow_bp)
 app.register_blueprint(reference_bp)
 app.register_blueprint(url_bp)
+
+@app.route('/git-pull')
+def git_reload():
+    os.system("git pull")
+    return "git-pull"
 
 """
 ##
